@@ -10,26 +10,35 @@
     <title>caTculator</title>
 </head>
 <body>
-    <div class="top">
-        <h1>caTculator</h1>
-    </div>
-    <div class="container">
-        <div class="row"><input type="text" value="0" name="inicial" id="1"><label for="1">INICIAL</label></div>
-        <div class="row"><input type="text" value="0" name="afagit" id="2"><label for="2">AFAGIT</label></div>
-        <div class="row"><div class="result" id="3"></div><span>FEINA</span></div> 
-        <div class="row"><input type="text" value="0" name="z" id="4"><label for="4">Z</label></div>
-        <div class="row"><input type="text" value="0" name="visa" id="5"><label for="5">VISA</label></div>
-        <div class="row"><div class="result" id="6"></div><span>SUB TOTAL</span></div> 
-        <div class="row"><input type="text" value="0" name="extret" id="7"><label for="7">EXTRET</label></div>
-        <div class="row"><input type="text" value="0" name="compres" id="8"><label for="8">COMPRES</label></div>
-        <div class="row"><input type="text" value="0" name="extres" id="9"><label for="9">EXTRES</label></div>
-        <div class="row"><div class="result" id="10"></div><span>FINAL</span></div> 
-        <div class="row"><input type="text" value="0" name="extres" id="11"><label for="9">REAL</label></div>
-        <div class="row"><div class="result" id="12"></div><span>DESCUADRE</span></div> 
+    <div class="app">
+        <div class="top">
+            <h1>caTculator v.0.1</h1>
+        </div>
+        <div class="container">
+            <div class="row"><input type="text" value="0" name="inicial" id="1"><label for="1">INICIAL</label></div>
+            <div class="row"><input type="text" value="0" name="afagit" id="2"><label for="2">AFAGIT</label></div>
+            <div class="row"><div class="result" id="3"></div><span>FEINA</span></div> 
+            <div class="row"><input type="text" value="0" name="z" id="4"><label for="4">Z</label></div>
+            <div class="row"><input type="text" value="0" name="visa" id="5"><label for="5">VISA <button class="plus" onclick="copyRow(visa)">+</button> </label></div>
+            <div class="row"><div class="result" id="6"></div><span>SUB TOTAL</span></div> 
+            <div class="row"><input type="text" value="0" name="extret" id="7"><label for="7">EXTRET</label></div>
+            <div class="row"><input type="text" value="0" name="compres" id="8"><label for="8">COMPRES</label></div>
+            <div class="row"><input type="text" value="0" name="extres" id="9"><label for="9">EXTRES</label></div>
+            <div class="row"><div class="result" id="10"></div><span>FINAL</span></div> 
+            <div class="row"><input type="text" value="0" name="extres" id="11"><label for="9">REAL</label></div>
+            <div class="row"><div class="result" id="12"></div><span>DESCUADRE</span></div> 
+    
+        </div>
+        <div class="keys">
+            <!-- <button class="calcula" onclick="calc()">calcula</button> -->
 
+            <button class="test" onclick="test()">test+1</button>
+
+        </div>
+    
+        
+        <script src="app.js"></script>
     </div>
 
-    <button class="calcula" onclick="calc()">calcula</button>
-    <script src="app.js"></script>
 </body>
 </html>

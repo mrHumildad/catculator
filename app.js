@@ -11,26 +11,20 @@ let final = document.getElementById("10")
 let real = document.getElementById("11")
 let descuadre = document.getElementById("12")
 function calc() {
-    let inputIds = [1, 2, 4, 5, 7, 8, 9, 11]
-    for (let i = 0; i < inputIds.length; i++) {
-        const element = inputIds[i];
-        if (element.value == "") {
-            element.value = 0 
-        }
+    feina.textContent = parseSum(inicial.value) + parseSum(afagit.value)
+    subtotal.textContent = parseSum(feina.textContent) + parseSum(z.value) - parseFloat(visa.value)
+    final.textContent = parseSum(subtotal.textContent) - parseSum(extret.value) - parseFloat(compres.value)- parseFloat(extres.value)
+    descuadre.textContent = parseSum(real.value) - parseSum(final.textContent)
 
-    }
-    console.log(parseFloat(inicial.value) + parseFloat(afagit.value))
+
+    /* console.log(parseFloat(inicial.value) + parseFloat(afagit.value))
     feina.textContent = parseFloat(inicial.value) + parseFloat(afagit.value)
     subtotal.textContent = parseFloat(feina.textContent) + parseFloat(z.value) - parseFloat(visa.value)
     final.textContent = parseFloat(subtotal.textContent) - parseFloat(extret.value) - parseFloat(compres.value)- parseFloat(extres.value)
-    descuadre.textContent = parseFloat(real.value) - parseFloat(final.textContent) 
+    descuadre.textContent = parseFloat(real.value) - parseFloat(final.textContent)  */
 }
-let string0 = ""
-let string1 = "24+66,5" 
-let string2 = "50,5"
-
 function parseSum(string) {
-    let sum = parseFloat(0)
+    let sum = 0
     if (string == "") {
         sum = 0 
         return parseFloat(sum)
@@ -38,13 +32,26 @@ function parseSum(string) {
     let numArr = string.split("+")
     console.log(numArr) 
     for (let n = 0; n < numArr.length; n++) {
-        console.log(numArr[n])
-        sum += parseFloat(numArr[n]);
+        console.log(parseFloat(numArr[n]))
+        sum += numArr[n];
         console.log(sum) 
 
     }
-    return sum    
+    return parseFloat(sum).toFixed(2)
 }
+function copyRow(actualrow) {
+    console.log("copyRow")
+}
+
+function test() {
+   inicial.value +=1
+}
+
+
+
+/* let string0 = ""
+let string1 = "24+66.5+44.55" 
+let string2 = "50.5"
 console.log(parseSum(string0))
 console.log(parseSum(string1))
-console.log(parseSum(string2))
+console.log(parseSum(string2)) */
