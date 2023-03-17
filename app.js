@@ -28,35 +28,11 @@ real.addEventListener("click", () => {selectedRow= 1; input = real})
 
 
 function calc() {
-    feina.textContent = parseSum(inicial.value) + parseSum(afagit.value)
-    subtotal.textContent = parseSum(feina.textContent) + parseSum(z.value) - parseFloat(visa.value)
-    final.textContent = parseSum(subtotal.textContent) - parseSum(extret.value) - parseFloat(compres.value)- parseFloat(extres.value)
-    descuadre.textContent = parseSum(real.value) - parseSum(final.textContent)
-
-
-    /* console.log(parseFloat(inicial.value) + parseFloat(afagit.value))
-    feina.textContent = parseFloat(inicial.value) + parseFloat(afagit.value)
-    subtotal.textContent = parseFloat(feina.textContent) + parseFloat(z.value) - parseFloat(visa.value)
-    final.textContent = parseFloat(subtotal.textContent) - parseFloat(extret.value) - parseFloat(compres.value)- parseFloat(extres.value)
-    descuadre.textContent = parseFloat(real.value) - parseFloat(final.textContent)  */
+    feina.textContent = (parseSum(inicial.textContent) + parseSum(afagit.textContent)).toFixed(2)
+    subtotal.textContent = (parseSum(feina.textContent) + parseSum(z.textContent) - parseFloat(visa.textContent)).toFixed(2)
+    final.textContent = (parseSum(subtotal.textContent) - parseSum(extret.textContent) - parseFloat(compres.textContent)- parseFloat(extres.textContent)).toFixed(2)
+    descuadre.textContent = (parseSum(real.textContent) - parseSum(final.textContent)).toFixed(2)
 }
-function parseSum(string) {
-    let sum = 0
-    if (string == "") {
-        sum = 0 
-        return parseFloat(sum)
-    }
-    let numArr = string.split("+")
-    console.log(numArr) 
-    for (let n = 0; n < numArr.length; n++) {
-        console.log(parseFloat(numArr[n]))
-        sum += numArr[n];
-        console.log(sum) 
-
-    }
-    return parseFloat(sum).toFixed(2)
-}
-
 function writeOnRow(n) {
    input.textContent +=n
 }
@@ -69,9 +45,26 @@ function test() {
     input.textContent +=1
 }
 
-/* let string0 = ""
-let string1 = "24+66.5+44.55" 
-let string2 = "50.5"
-console.log(parseSum(string0))
-console.log(parseSum(string1))
-console.log(parseSum(string2)) */
+let string0 = ""
+let string2 = "24+66.5+44.55" 
+let string1 = "5+0.5"
+function parseSum(str) {
+    let sum = 0
+    if (str == "" || str == undefined) {
+        sum= 0
+    }
+    else if (str.indexOf("+") == -1) {
+        sum = parseFloat(str)
+    }
+    else {
+        let numArr = str.split("+")
+        console.log(numArr) 
+        for (let n = 0; n < numArr.length; n++) {
+            const number = parseFloat(numArr[n]);
+            sum += number
+            
+        }  
+    }
+    console.log(typeof sum)
+    return sum
+}
