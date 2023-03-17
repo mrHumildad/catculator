@@ -1,3 +1,4 @@
+//links to elements
 let inicial = document.getElementById("1")
 let afagit = document.getElementById("2")
 let feina = document.getElementById("3")
@@ -10,6 +11,30 @@ let extres = document.getElementById("9")
 let final = document.getElementById("10")
 let real = document.getElementById("11")
 let descuadre = document.getElementById("12")
+let rows = document.getElementsByClassName("row")
+let inputRaws = document.getElementsByClassName("input")
+
+///select a row to insert text
+let selectedRow = 0
+let input = inicial
+inicial.addEventListener("click", () => {selectedRow = 0; input = inicial})
+afagit.addEventListener("click", () => {selectedRow= 1; input = afagit})
+z.addEventListener("click", () => {selectedRow= 1; input = z})
+visa.addEventListener("click", () => {selectedRow= 1; input = visa})
+extret.addEventListener("click", () => {selectedRow= 1; input = extret})
+compres.addEventListener("click", () => {selectedRow= 1; input = compres})
+extres.addEventListener("click", () => {selectedRow= 1; input = extres})
+real.addEventListener("click", () => {selectedRow= 1; input = real})
+
+/* for (let r = 0; r < rows.length; r++) {
+    const row = rows[r];
+    row.addEventListener("click", selectRow()) 
+} */
+/* function selectRow() {
+    console.log("row selected") */
+
+
+
 function calc() {
     feina.textContent = parseSum(inicial.value) + parseSum(afagit.value)
     subtotal.textContent = parseSum(feina.textContent) + parseSum(z.value) - parseFloat(visa.value)
@@ -39,15 +64,15 @@ function parseSum(string) {
     }
     return parseFloat(sum).toFixed(2)
 }
-function copyRow(actualrow) {
-    console.log("copyRow")
+
+
+function writeOnRow(n) {
+   input.textContent +=n
 }
 
 function test() {
-   inicial.value +=1
+    input.textContent +=1
 }
-
-
 
 /* let string0 = ""
 let string1 = "24+66.5+44.55" 
