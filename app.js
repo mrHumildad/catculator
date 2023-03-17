@@ -26,14 +26,6 @@ compres.addEventListener("click", () => {selectedRow= 1; input = compres})
 extres.addEventListener("click", () => {selectedRow= 1; input = extres})
 real.addEventListener("click", () => {selectedRow= 1; input = real})
 
-/* for (let r = 0; r < rows.length; r++) {
-    const row = rows[r];
-    row.addEventListener("click", selectRow()) 
-} */
-/* function selectRow() {
-    console.log("row selected") */
-
-
 
 function calc() {
     feina.textContent = parseSum(inicial.value) + parseSum(afagit.value)
@@ -65,11 +57,14 @@ function parseSum(string) {
     return parseFloat(sum).toFixed(2)
 }
 
-
 function writeOnRow(n) {
    input.textContent +=n
 }
 
+function deleteLast() {
+    console.log(input.textContent.typeOf)
+    input.textContent = input.textContent.slice(0, -1)
+}
 function test() {
     input.textContent +=1
 }
