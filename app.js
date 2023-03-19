@@ -1,5 +1,3 @@
-/* alert("caca")
- */
 //links to elements
 let inicial = document.getElementById("1")
 let afagit = document.getElementById("2")
@@ -16,7 +14,6 @@ let descuadre = document.getElementById("12")
 let rows = document.getElementsByClassName("row")
 let inputs = document.getElementsByClassName("input")
 ///select a row to insert text
-
 let input = inicial
 selectRow(0)
 inicial.addEventListener("click", () => {selectRow(0); input = inicial})
@@ -27,7 +24,6 @@ extret.addEventListener("click", () => {selectRow(6); input = extret})
 compres.addEventListener("click", () => {selectRow(7); input = compres})
 extres.addEventListener("click", () => {selectRow(8); input = extres})
 real.addEventListener("click", () => {selectRow(10); input = real})
-
 function selectRow(row) {
     for (let r = 0; r < rows.length; r++) {
         rows[r].classList.remove("selected");
@@ -36,9 +32,9 @@ function selectRow(row) {
 }
 function calc() {
     feina.textContent = (parseSum(inicial) + parseSum(afagit)).toFixed(2)
-    subtotal.textContent = (parseSum(feina) + parseSum(z) - parseFloat(visa)).toFixed(2)
-    final.textContent = (parseSum(subtotal) - parseSum(extret) - parseFloat(compres)- parseFloat(extres)).toFixed(2)
-    descuadre.textContent = (parseSum(real) - parseSum(final)).toFixed(2)
+    subtotal.textContent = (parseFloat(feina.textContent) + parseSum(z) - parseSum(visa)).toFixed(2)
+    final.textContent = (parseFloat(subtotal.textContent) - parseSum(extret) - parseSum(compres)- parseSum(extres)).toFixed(2)
+    descuadre.textContent = (parseSum(real.textContent) - parseSum(final)).toFixed(2)
 }
 function writeOnRow(n) {
    input.textContent +=n
@@ -46,6 +42,39 @@ function writeOnRow(n) {
 function deleteLast() {
     input.textContent = input.textContent.slice(0, -1)
 }
+function nextField() {
+    console.log(input.id)
+    //console.log(input.dataset.next)
+    switch (input.id) {
+        case "1":
+            selectRow(1); input = afagit;
+            console.log("cqaca")
+        case "2":
+            selectRow(3); input = z
+        case "4":
+            selectRow(4); input = visa;
+        case "5":
+            selectRow(6); input = extret
+        case "7":
+            selectRow(7); input = compres;
+        case "8":
+            selectRow(8); input = extres;
+        case "9":
+            selectRow(10); input = real
+        case "11":
+            selectRow(0); input = inicial
+
+            break;
+    
+        default:
+            break;
+    }
+    console.log(input.id)
+
+}
+
+
+
 function parseSum(field) {
     const str = field.textContent
     let sum = 0

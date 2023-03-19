@@ -5,32 +5,28 @@
     <meta author="MrHumildad">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>caTculator</title>
 </head>
 <body>
-    <div class="alertMessage">
-        <span class="closeBtn" onclick="this.parentElement.style.display='none';">×</span>
-        <strong>This is an alert message.</strong> Click on the close button to dismiss it.
-    </div>
     <div class="app">
         <div class="top">
             <h1>caTculator v.1.02</h1>
         </div>
         <div class="container">
-            <div class="row"><div class="cell input" id="1"></div><div class="cell label">INICIAL(1)</div></div>
-            <div class="row"><div class="cell input" id="2"></div><div class="cell label">AFAGIT(2)</div></div>
-            <div class="row result"><div class="cell" id="3"></div><div class="cell label">FEINA(3)</div></div> 
-            <div class="row"><div class="cell input" id="4"></div><div class="cell label">Z(4)</div></div>
-            <div class="row"><div class="cell input" id="5"></div><div class="cell label">VISA(5)</div></div>
-            <div class="row result"><div class="cell" id="6"></div><div class="cell label">SUB TOTAL(6)</div></div>
-            <div class="row"><div class="cell input" id="7"></div><div class="cell label">EXTRET(7)</div></div>
-            <div class="row"><div class="cell input" id="8"></div><div class="cell label">COMPRES(8)</div></div>
-            <div class="row"><div class="cell input" id="9"></div><div class="cell label">EXTRES(9)</div></div>
-            <div class="row result"><div class="cell" id="10"></div><div class="cell label">FINAL(10)</div></div>
-            <div class="row"><div class="cell input" id="11"></div><div class="cell label">REAL(11)</div></div>
-            <div class="row result"><div class="cell" id="12"></div><div class="cell label">DESQUADRE(12)</div></div>
+            <div class="row"><div class="cell input" data-next="" id="1"></div><div class="cell label">INICIAL (1)</div></div>
+            <div class="row"><div class="cell input" id="2"></div><div class="cell label">AFAGIT (2)</div></div>
+            <div class="row result"><div class="cell" id="3"></div><div class="cell label">FEINA (3)</div></div> 
+            <div class="row"><div class="cell input" id="4"></div><div class="cell label">Z (4)</div></div>
+            <div class="row"><div class="cell input" id="5"></div><div class="cell label">VISA (5)</div></div>
+            <div class="row result"><div class="cell" id="6"></div><div class="cell label">SUBTOTAL (6)</div></div>
+            <div class="row"><div class="cell input" id="7"></div><div class="cell label">EXTRET (7)</div></div>
+            <div class="row"><div class="cell input" id="8"></div><div class="cell label">COMPRES (8)</div></div>
+            <div class="row"><div class="cell input" id="9"></div><div class="cell label">EXTRES (9)</div></div>
+            <div class="row result"><div class="cell" id="10"></div><div class="cell label">FINAL (10)</div></div>
+            <div class="row"><div class="cell input" id="11"></div><div class="cell label">REAL (11)</div></div>
+            <div class="row result"><div class="cell" id="12"></div><div class="cell label">DESQUADRE (12)</div></div>
     
         </div>
         <div class="keys">
@@ -52,21 +48,7 @@
                 <div class="butt" onclick="deleteLast()">X</div>
                 <div class="butt" onclick="calc()">=</div>
             </div>
-        </div>
-
-
-
-
-
-
-
-
-                    <!-- <button class="calcula" onclick="calc()">calcula</button> -->
-
-<!--             <button class="test" onclick="test(1)">test+1</button>
- -->
-    
-        
+        </div>  
         <script src="app.js"></script>
     </div>
 
