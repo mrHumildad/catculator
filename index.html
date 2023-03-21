@@ -15,7 +15,7 @@
             <span id="title">caTculator v.1.03</span>
         </div>
         <div class="container">
-            <div class="row"><div class="cell input" data-next="" id="1"></div><div class="cell label">INICIAL-1</div></div>
+            <div class="row"><div class="cell input" id="1"></div><div class="cell label">INICIAL-1</div></div>
             <div class="row"><div class="cell input" id="2"></div><div class="cell label">AFEGIT-2</div></div>
             <div class="row result"><div class="cell" id="3"></div><div class="cell label">FEINA-3</div></div> 
             <div class="row"><div class="cell input" id="4"></div><div class="cell label">Z-4</div></div>
@@ -45,8 +45,8 @@
                 <div class="butt" onclick="writeOnRow('.')">.</div>
             </div>
             <div class="rightpad">
-                <div class="butt" onclick="deleteLast()">X</div>
-                <div class="butt" onclick="calc()">=</div>
+                <div class="butt" onclick="deleteLast()">del</div>
+                <div class="butt" id="totButt" onclick="calc()">TOT</div>
             </div>
         </div>  
         <script src="app.js"></script>

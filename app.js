@@ -27,6 +27,7 @@ rows[6].addEventListener("click", () => {selectRow(6); input = extret})
 rows[7].addEventListener("click", () => {selectRow(7); input = compres})
 rows[8].addEventListener("click", () => {selectRow(8); input = extres})
 rows[10].addEventListener("click", () => {selectRow(10); input = real})
+titlEffect(2)
 function selectRow(row) {
   //let sel = input.parentElement()
   console.log(input.parentNode)
@@ -89,22 +90,26 @@ function parseSum(field) {
 }
 
 //fun effect for pad keys
-function titlEffect() {
-    //console.log(title.textContent)
+
+function titlEffect(n) {
     titleText = "caTculator v.1.02"
-    rndIndex = getRndInteger(0, 9)
-    console.log(rndIndex)
-    bfText = titleText.slice(0,rndIndex)
-    console.log(bfText)
-    console.log(title.textContent[rndIndex])
-    whiteChar = title.textContent[rndIndex]
-
-    afText = titleText.slice((rndIndex +1))
-    console.log(afText)
+    if (n==2) {
+        whiteChar = "T"
+        bfText = "ca"
+        afText = "culator v.1.02"
+        rndIndex = 2
+    }
+    else {
+        rndIndex = getRndInteger(0, 9, n)
+        bfText = titleText.slice(0,rndIndex)
+        whiteChar = title.textContent[rndIndex]
+        afText = titleText.slice((rndIndex +1))
+    }
     title.innerHTML = bfText + '<span class="white">'+ whiteChar + "</span>" +afText
-
+    return rndIndex
 }
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
+function getRndInteger(min, max, excluded) {
+    var num = Math.floor(Math.random() * (max - min) ) + min;
+    return (num === excluded) ? generateRandom(min, max) : num;
 }
 

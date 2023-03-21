@@ -97,6 +97,11 @@ body {
 }
 .white {
     color: aliceblue;
+    
+}
+#totButt {
+    background-color: red;
+    color: black;
 }
 /* #title {
 
