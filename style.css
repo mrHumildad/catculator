@@ -15,6 +15,7 @@ body {
     height: 5vh;
     background-color: blue;
     border: 3px solid black;
+    font-size: 180%;
 }
 .container {
     height: 65vh;
@@ -34,12 +35,26 @@ body {
     font-size: 120%;
 }
 .cell {
-    width: 50%;
+    width: 60%;
     border: 0;
     display: flex;
     align-items:center;
     justify-content:center;
-    
+    /* overflow: hidden;
+    direction: rtl */
+}
+.label {
+    width: 40%;
+}
+.added {
+/*     color: red;
+ */    font-weight: bolder;
+    font-size: 120%;
+}
+.light {
+    font-weight: lighter;
+    font-size: 80%;
+
 }
 .keys {
     height: 30vh;
@@ -80,3 +95,9 @@ body {
     border: 5px solid red;
     font-size: 130%;
 }
+.white {
+    color: aliceblue;
+}
+/* #title {
+
+} */

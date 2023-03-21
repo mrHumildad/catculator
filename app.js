@@ -1,4 +1,5 @@
 //links to elements
+let title = document.getElementById("title")
 let inicial = document.getElementById("1")
 let afagit = document.getElementById("2")
 let feina = document.getElementById("3")
@@ -15,22 +16,33 @@ let rows = document.getElementsByClassName("row")
 let inputs = document.getElementsByClassName("input")
 ///select a row to insert text
 let input = inicial
-selectRow(0)
-inicial.addEventListener("click", () => {selectRow(0); input = inicial})
-afagit.addEventListener("click", () => {selectRow(1); input = afagit})
-z.addEventListener("click", () => {selectRow(3); input = z})
-visa.addEventListener("click", () => {selectRow(4); input = visa})
-extret.addEventListener("click", () => {selectRow(6); input = extret})
-compres.addEventListener("click", () => {selectRow(7); input = compres})
-extres.addEventListener("click", () => {selectRow(8); input = extres})
-real.addEventListener("click", () => {selectRow(10); input = real})
+rows[0].classList.add("selected")
+//selectRow(0)
+
+rows[0].addEventListener("click", () => {selectRow(0); input = inicial})
+rows[1].addEventListener("click", () => {selectRow(1); input = afagit})
+rows[3].addEventListener("click", () => {selectRow(3); input = z})
+rows[4].addEventListener("click", () => {selectRow(4); input = visa})
+rows[6].addEventListener("click", () => {selectRow(6); input = extret})
+rows[7].addEventListener("click", () => {selectRow(7); input = compres})
+rows[8].addEventListener("click", () => {selectRow(8); input = extres})
+rows[10].addEventListener("click", () => {selectRow(10); input = real})
 function selectRow(row) {
-    for (let r = 0; r < rows.length; r++) {
+  //let sel = input.parentElement()
+  console.log(input.parentNode)
+  input.parentNode.classList.remove("selected")
+    //sel.classList.remove("selected")
+    
+   /*  for (let r = 0; r < rows.length; r++) {
         rows[r].classList.remove("selected");
-       }
-       rows[row].classList.add("selected")
+    } */
+    rows[row].classList.add("selected")
 }
 function calc() {
+    let spans = document.getElementsByClassName("added")
+    for (let s = 0; s < spans.length; s++) {
+        spans[s].remove();
+    }
     feina.textContent = (parseSum(inicial) + parseSum(afagit)).toFixed(2)
     subtotal.textContent = (parseFloat(feina.textContent) + parseSum(z) - parseSum(visa)).toFixed(2)
     final.textContent = (parseFloat(subtotal.textContent) - parseSum(extret) - parseSum(compres)- parseSum(extres)).toFixed(2)
@@ -38,43 +50,16 @@ function calc() {
 }
 function writeOnRow(n) {
    input.textContent +=n
+   titlEffect()
 }
 function deleteLast() {
     input.textContent = input.textContent.slice(0, -1)
 }
 function nextField() {
     console.log(input.id)
-    //console.log(input.dataset.next)
-    switch (input.id) {
-        case "1":
-            selectRow(1); input = afagit;
-            console.log("cqaca")
-        case "2":
-            selectRow(3); input = z
-        case "4":
-            selectRow(4); input = visa;
-        case "5":
-            selectRow(6); input = extret
-        case "7":
-            selectRow(7); input = compres;
-        case "8":
-            selectRow(8); input = extres;
-        case "9":
-            selectRow(10); input = real
-        case "11":
-            selectRow(0); input = inicial
-
-            break;
-    
-        default:
-            break;
-    }
-    console.log(input.id)
-
+    console.log(input.dataset.next)
+   
 }
-
-
-
 function parseSum(field) {
     const str = field.textContent
     let sum = 0
@@ -92,9 +77,34 @@ function parseSum(field) {
             sum += number
         }
         resultText = document.createTextNode("= " + sum)
+        resultSpan = document.createElement("span")
+        resultSpan.classList.add("added")
         console.log(resultText)
-        field.appendChild(resultText)
+        resultSpan.appendChild(resultText)
+        field.classList.add("light")
+        field.appendChild(resultSpan)
     console.log(typeof sum)
     }
     return sum
 }
+
+//fun effect for pad keys
+function titlEffect() {
+    //console.log(title.textContent)
+    titleText = "caTculator v.1.02"
+    rndIndex = getRndInteger(0, 9)
+    console.log(rndIndex)
+    bfText = titleText.slice(0,rndIndex)
+    console.log(bfText)
+    console.log(title.textContent[rndIndex])
+    whiteChar = title.textContent[rndIndex]
+
+    afText = titleText.slice((rndIndex +1))
+    console.log(afText)
+    title.innerHTML = bfText + '<span class="white">'+ whiteChar + "</span>" +afText
+
+}
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+}
+
