@@ -47,7 +47,7 @@ function calc() {
     feina.textContent = (parseSum(inicial) + parseSum(afagit)).toFixed(2)
     subtotal.textContent = (parseFloat(feina.textContent) + parseSum(z) - parseSum(visa)).toFixed(2)
     final.textContent = (parseFloat(subtotal.textContent) - parseSum(extret) - parseSum(compres)- parseSum(extres)).toFixed(2)
-    descuadre.textContent = (parseSum(real.textContent) - parseSum(final)).toFixed(2)
+    descuadre.textContent = (parseSum(real) - parseFloat(final.textContent)).toFixed(2)
 }
 function writeOnRow(n) {
    input.textContent +=n
