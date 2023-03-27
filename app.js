@@ -18,7 +18,6 @@ let inputs = document.getElementsByClassName("input")
 let input = inicial
 rows[0].classList.add("selected")
 //selectRow(0)
-
 rows[0].addEventListener("click", () => {selectRow(0); input = inicial})
 rows[1].addEventListener("click", () => {selectRow(1); input = afagit})
 rows[3].addEventListener("click", () => {selectRow(3); input = z})
@@ -29,15 +28,14 @@ rows[8].addEventListener("click", () => {selectRow(8); input = extres})
 rows[10].addEventListener("click", () => {selectRow(10); input = real})
 titlEffect(2)
 function selectRow(row) {
-  //let sel = input.parentElement()
-  console.log(input.parentNode)
-  input.parentNode.classList.remove("selected")
-    //sel.classList.remove("selected")
-    
-   /*  for (let r = 0; r < rows.length; r++) {
-        rows[r].classList.remove("selected");
-    } */
+    input.parentNode.classList.remove("selected")
     rows[row].classList.add("selected")
+    console.log(rows[row].getElementsByClassName("added")[0])
+    //rows[row].getElementsByClassName("added")[0].remove()
+    if (rows[row].getElementsByClassName("added")[0]) {
+        rows[row].getElementsByClassName("added")[0].remove()
+    }
+    
 }
 function calc() {
     let spans = document.getElementsByClassName("added")
@@ -88,9 +86,7 @@ function parseSum(field) {
     }
     return sum
 }
-
 //fun effect for pad keys
-
 function titlEffect(n) {
     titleText = "caTculator v.1.02"
     if (n==2) {
