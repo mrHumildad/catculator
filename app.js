@@ -31,11 +31,9 @@ function selectRow(row) {
     input.parentNode.classList.remove("selected")
     rows[row].classList.add("selected")
     console.log(rows[row].getElementsByClassName("added")[0])
-    //rows[row].getElementsByClassName("added")[0].remove()
     if (rows[row].getElementsByClassName("added")[0]) {
         rows[row].getElementsByClassName("added")[0].remove()
-    }
-    
+    } 
 }
 function calc() {
     let spans = document.getElementsByClassName("added")
